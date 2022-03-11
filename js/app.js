@@ -52,20 +52,21 @@ const switchTab = (id) => {
 };
 
 const createPost = (post) => {
+  console.log(post);
   const image = post.image;
+  const UserImage = post.userImage;
   const div = document.createElement("article");
   div.classList.add("post");
   div.innerHTML = `
               <div class="post__header">
                 <div class="post__profile">
                   <a
-                    href="https://github.com/ProgrammingHero1"
-                    target="_blank"
+                    
                     class="post__avatar"
                   >
-                    <img src="${image}" alt="User Picture" />
+                  <img src="${UserImage}" alt="User Picture" />
                   </a>
-                  <a href="#" class="post__user">phero</a>
+                  <a  class="post__user">phero</a>
                 </div>
 
                 <button class="post__more-options">
@@ -75,11 +76,11 @@ const createPost = (post) => {
 
               <div class="post__content">
                 <div class="post__medias">
-                  <img
-                    class="post__media"
-                    src="${image}"
-                    alt="Post Content"
-                  />
+                <img
+                class="post__media"
+                src="${image}"
+                alt="Post Content"
+              />
                 </div>
               </div>
 
@@ -122,7 +123,7 @@ const createPost = (post) => {
                       <a class="post__name--underline" href="#">
                           ${post.comments?.user}
                       </a>
-                      ${post.comments?.text}
+                       ${post.comments?.text}
                     </small>
                   </div>
                   <span class="post__date-time">30 minutes ago</span>
@@ -152,7 +153,7 @@ const displayLikedPosts = () => {
 
 const displayReportedPosts = () => {
   const reportedPosts = getReportedPosts();
-  posts.forEach((post) => {
+  reportedPosts.forEach((post) => {
     const div = createPost(post);
     document.getElementById("reported").appendChild(div);
   });
